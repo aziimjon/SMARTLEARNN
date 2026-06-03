@@ -1,34 +1,4 @@
-# LaTeX generated files
-*.aux
-*.bbl
-*.blg
-*.log
-*.toc
-*.out
-*.synctex.gz
-*.run.xml
-*.bcf
-*.loa
-*.lof
-*.lol
-*.lot
-*.pyg
-*.bbl-SAVE-ERROR
-
-# Editor-specific files
-.vscode/
-_minted-main/
-
-# Git internal files (optional, since .git is already ignored by Git itself)
-.git/
-
-# Miscellaneous
-*.bak
-*.sav
-*.old
-
-# Keep source files
-!*.tex
-!*.bib
-!*.cls
-!README.md
+.DS_Store
+code/flutter/# ROLE & IDENTITY.md
+code/flutter/CLAUDE.APP.md
+code/flutter/new-entities-and-requests.md
