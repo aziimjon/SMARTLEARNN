@@ -10,8 +10,9 @@
 
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
+![Java](https://img.shields.io/badge/Java_21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot_4-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
 ![Platforms](https://img.shields.io/badge/Platforms-Android%20%7C%20iOS%20%7C%20Web%20%7C%20macOS%20%7C%20Windows-555?style=flat-square)
@@ -36,11 +37,12 @@ The system supports the full educational workflow: managing courses and online c
 - **Groups & scheduling** — group creation, lesson sessions, and recurring schedules
 - **Attendance tracking** — marking and reviewing attendance per session
 - **Homework** — assignments, submissions, and attachments
-- **File handling** — resumable (TUS) uploads with object storage
+- **File handling** — resumable (TUS) uploads with MinIO object storage
 - **AI study assistant** — an AI tutor / coach module for learners
 - **Authentication & security** — JWT-based auth, rate limiting, and a configurable security layer
 - **Internationalization** — English, Russian and Uzbek (en / ru / uz)
-- **Real-time** — WebSocket support for live updates
+- **Real-time** — WebSocket (STOMP/SockJS) support for live updates
+- **API documentation** — interactive Swagger UI via SpringDoc OpenAPI
 
 ---
 
@@ -76,7 +78,7 @@ SMARTLEARNN/
 └── docs/             # Thesis, presentation and supporting documents
 ```
 
-The Flutter client follows a **feature-first Clean Architecture** (data / domain / presentation layers) with dependency injection, a typed HTTP client and code-generated models. The backend is a layered **Spring Boot** service (controller → service → repository) with DTO mappers, specifications for filtering, and a modular security configuration.
+The Flutter client follows a **feature-first Clean Architecture** (data / domain / presentation layers) with dependency injection, a typed HTTP client and code-generated models. The backend is a layered **Spring Boot** service (controller → service → repository) with MapStruct DTO mappers, JPA specifications for filtering, and a modular security configuration.
 
 ---
 
@@ -93,13 +95,14 @@ Riverpod · get_it / injectable · freezed · Dio · go_router · secure storage
 
 ### 🖥 Backend — Spring Boot
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![Java](https://img.shields.io/badge/Java_21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot_4-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
 ![Spring Security](https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)
-![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
 
-Spring Boot · Spring Security + JWT · JPA / Hibernate · MinIO object storage · Maven · WebSocket
+Spring Boot 4 · Spring Security + JWT (jjwt) · Spring Data JPA / Hibernate · PostgreSQL · MinIO object storage · TUS resumable uploads · MapStruct + Lombok · Caffeine cache · SpringDoc OpenAPI (Swagger) · WebSocket (STOMP/SockJS) · Maven
 
 ### ⚙️ DevOps & Tools
 
@@ -115,8 +118,8 @@ Spring Boot · Spring Security + JWT · JPA / Hibernate · MinIO object storage 
 ### Prerequisites
 
 - Flutter SDK (stable channel) and Dart
-- JDK 17+
-- Docker & Docker Compose (optional, for the backend stack)
+- JDK 21
+- Docker & Docker Compose (recommended for the backend stack: app, PostgreSQL, MinIO)
 
 ### Frontend — Flutter client
 
@@ -128,17 +131,19 @@ flutter run
 
 ### Backend — Spring Boot API
 
+The API runs on port **8888**. Swagger UI: `http://localhost:8888/swagger-ui/index.html`
+
 ```bash
 cd code/backend
 
-# Option A — run with Maven
-./mvnw spring-boot:run
+# Option A — full stack with Docker (app + PostgreSQL + MinIO)
+docker compose up -d --build
 
-# Option B — run with Docker
-docker compose up -d
+# Option B — run the app with Maven (needs PostgreSQL & MinIO running)
+./mvnw spring-boot:run
 ```
 
-> Copy `code/backend/.env.example` to `.env` and fill in the values (database, JWT secret, storage credentials) before running.
+> Copy `code/backend/.env.example` to `.env` and fill in the values (PostgreSQL, JWT secret, MinIO credentials) before running.
 
 ---
 
