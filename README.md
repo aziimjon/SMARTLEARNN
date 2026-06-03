@@ -5,7 +5,7 @@
 ### Cross-Platform Learning Management System
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1000&color=02569B&center=true&vCenter=true&width=620&lines=Flutter+client+for+mobile%2C+desktop+%26+web;Spring+Boot+REST+backend;Clean+Architecture+%7C+Scalable+%7C+Secure" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1000&color=02569B&center=true&vCenter=true&width=620&lines=AI-powered+Learning+Management+System;Flutter+client+for+mobile%2C+desktop+%26+web;Spring+Boot+REST+backend;Clean+Architecture+%7C+Scalable+%7C+Secure" />
 </p>
 
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
@@ -24,21 +24,21 @@
 
 ## 📖 Overview
 
-**SmartLearn** is a cross-platform Learning Management System (LMS) developed as a graduation thesis project. It pairs a single **Flutter** codebase — running on mobile, desktop and web — with a robust **Java Spring Boot** REST backend.
+**SmartLearn** is a cross-platform Learning Management System (LMS) built as a graduation thesis project — with an **AI tutor at its core**. A single **Flutter** codebase (mobile, desktop, web) is paired with a **Java Spring Boot** REST backend.
 
-The system supports the full educational workflow: managing courses and online courses, organizing groups and schedules, tracking attendance, handling homework and submissions, and serving learning materials through resumable file uploads. Access is governed by a role and permission model spanning **Admin, Teacher, Student and Parent** roles.
+Its flagship feature is the **AI study assistant**: a personalized, Socratic-method tutor that answers course questions and guides learners step by step — a smart alternative to traditional self-study. Around it, SmartLearn covers the full educational workflow: courses and online courses, groups and schedules, attendance, homework and submissions, and resumable file uploads — all under a role and permission model (Admin, Teacher, Student, Parent).
 
 ---
 
 ## ✨ Key Features
 
+- **🤖 AI study assistant (flagship)** — a personalized, Socratic-method AI tutor that answers course questions and guides learners — a smart alternative to traditional self-study
 - **Role-based access control** — Admin, Teacher, Student and Parent profiles with granular permissions
 - **Course management** — offline courses, sections, lessons, and self-paced online courses with progress tracking
 - **Groups & scheduling** — group creation, lesson sessions, and recurring schedules
 - **Attendance tracking** — marking and reviewing attendance per session
 - **Homework** — assignments, submissions, and attachments
 - **File handling** — resumable (TUS) uploads with MinIO object storage
-- **AI study assistant** — an AI tutor / coach module for learners
 - **Authentication & security** — JWT-based auth, rate limiting, and a configurable security layer
 - **Internationalization** — English, Russian and Uzbek (en / ru / uz)
 - **Real-time** — WebSocket (STOMP/SockJS) support for live updates
